@@ -117,7 +117,7 @@ const handleLogoutClick = () => {
 
   return (
     <>
-    // logout modal here, outside of nav so that it overlays everything
+    {/* logout modal here, outside of nav so that it overlays everything */}
       <LogoutModal
         isOpen={showLogoutModal}
         onConfirm={handleConfirmLogout}
