@@ -11,6 +11,7 @@ import Footer from "./components/Footer.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import About from "./pages/About.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import PublicRoute from "./components/PublicRoute.jsx";
 
 const App = () => {
   return (
@@ -18,9 +19,9 @@ const App = () => {
       <Navbar />
       <main className="app-bg min-h-screen pt-15 flex justify-center items-center">
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+          <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
           <Route path="/about" element={<About />} />
           <Route
             path="/dashboard"
