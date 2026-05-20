@@ -79,7 +79,7 @@ const Signup = () => {
   return (
     <form
       className="
-        surface-bg px-10 py-15 rounded-2xl
+        surface-bg px-10 py-16 rounded-2xl
         w-full max-w-sm
         flex flex-col gap-6
         animate-in
@@ -158,7 +158,7 @@ const Signup = () => {
             w-full px-3 py-2.5
             text-sm
             surface-bg
-            rounded-base
+            rounded-xl
             shadow-xs
             input-focus hover-lift
             ${errors.password ? "border-red-500" : "border-soft"}
@@ -180,7 +180,7 @@ const Signup = () => {
               text-sm
               surface-bg
               border-soft
-              rounded-base
+              rounded-xl
               shadow-xs
               input-focus hover-lift
             "

@@ -74,7 +74,7 @@ export default function TaskLibrary({ onAddTask }) {
       <div className="mb-4">
         <div className="flex items-center gap-2">
           <h2 className="text-lg font-semibold text-main">Task Library</h2>
-          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-soft text-main">
+          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-[var(--border)] text-main">
             {filteredTasks?.length ?? 0}
           </span>
         </div>
