@@ -77,6 +77,7 @@ const Signup = () => {
 
   // signup component
   return (
+    <div className="flex flex-1 justify-center items-center min-h-[calc(100vh-64px)]">
     <form
       className="
         surface-bg px-10 py-15 rounded-2xl
@@ -220,6 +221,7 @@ const Signup = () => {
         </Link>
       </p>
     </form>
+    </div>
   );
 };
 

@@ -16,7 +16,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <main className="app-bg min-h-screen pt-15 flex justify-center items-center">
+      <main className="app-bg min-h-screen pt-15 flex flex-col">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
