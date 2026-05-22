@@ -110,10 +110,10 @@ const Signup = () => {
             rounded-sm
             shadow-xs
             input-focus hover-lift
-            ${errors.name ? "border-red-500" : "border-soft"}
+            ${errors.name ? "border-red-500 dark:border-red-400" : "border-soft"}
           `}
         />
-        {errors.name && <span className="text-red-500 text-xs">{errors.name}</span>}
+        {errors.name && <span className="text-red-500 dark:text-red-400 text-xs">{errors.name}</span>}
       </div>
 
       <div className="flex flex-col gap-1.5">
@@ -161,10 +161,10 @@ const Signup = () => {
             rounded-base
             shadow-xs
             input-focus hover-lift
-            ${errors.password ? "border-red-500" : "border-soft"}
+            ${errors.password ? "border-red-500 dark:border-red-400" : "border-soft"}
           `}
         />
-        {errors.password && <span className="text-red-500 text-xs">{errors.password}</span>}
+        {errors.password && <span className="text-red-500 dark:text-red-400 text-xs">{errors.password}</span>}
         <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -197,7 +197,7 @@ const Signup = () => {
       </div>
 
       {error && (
-        <div className="px-3 py-2.5 bg-red-50 border border-red-200 rounded-sm text-sm text-red-600">
+        <div className="px-3 py-2.5 bg-red-50 border border-red-200 rounded-sm text-sm text-red-600 dark:bg-red-900/30 dark:border-red-800 dark:text-red-300">
           {error}
         </div>
       )}
