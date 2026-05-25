@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, LayoutDashboard, CheckSquare, Calendar, LogOut, LogIn, User, Sun, Moon, TrendingUp } from "lucide-react";
+import { Menu, X, LayoutDashboard, CheckSquare, Calendar, LogOut, LogIn, User, Sun, Moon, TrendingUp,Info } from "lucide-react";
 import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "../context/ThemeContext";
 import { clsx } from "clsx";
@@ -174,6 +174,43 @@ const handleLogoutClick = () => {
                   {link.name}
                 </NavLink>
               ))}
+
+              {/* About link for logged in users  */}
+               <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  cn(
+                    "px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2",
+                    isActive
+                      ? "bg-[#d0f6e3] text-[#3b8ea0] shadow-sm"
+                      : "text-[#4eb7b3] hover:bg-[#d0f6e3]/50 hover:text-[#3b8ea0]"
+                  )
+                }
+              >
+                <Info size={16} />
+                About
+              </NavLink>
+
+            </div>
+          )}
+
+          {/* About link for logged out users */}
+          {!user && (
+            <div className="hidden md:flex items-center">
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  cn(
+                    "px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2",
+                    isActive
+                      ? "bg-[#d0f6e3] text-[#3b8ea0] shadow-sm"
+                      : "text-[#4eb7b3] hover:bg-[#d0f6e3]/50 hover:text-[#3b8ea0]"
+                  )
+                }
+              >
+                <Info size={16} />
+                About
+              </NavLink>
             </div>
           )}
 
@@ -291,6 +328,23 @@ const handleLogoutClick = () => {
                   {link.name}
                 </NavLink>
               ))}
+
+              {/* About link for mobile dropdown  */}
+              <NavLink
+                to="/about"
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  cn(
+                    "px-4 py-3 rounded-xl text-base font-medium transition-colors flex items-center gap-3 w-full",
+                    isActive
+                      ? "bg-[#d0f6e3] text-[#3b8ea0]"
+                      : "text-[#4eb7b3] hover:bg-[#d0f6e3]/50 hover:text-[#3b8ea0]"
+                  )
+                }
+              >
+                <Info size={18} />
+                About
+              </NavLink>
 
               {/* Premium Mobile Dark Mode Toggle */}
               <div className="flex items-center justify-between px-4 py-2 border-t border-soft/30 mt-2">
