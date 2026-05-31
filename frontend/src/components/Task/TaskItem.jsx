@@ -7,7 +7,7 @@ const priorityStyles = {
   High: "border-red-500 bg-red-50 dark:bg-red-950/20",
 };
 
-export default function TaskItem({ task, onToggleComplete, onDelete, onUpdate, isSelected, onSelect, onEdit}) {
+export default function TaskItem({ task, onToggleComplete, onDelete, isSelected, onSelect, onEdit}) {
   const isCompleted = task.status === "Completed";
 
 
