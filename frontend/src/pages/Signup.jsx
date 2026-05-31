@@ -5,6 +5,7 @@ import api from "../api/axios";
 import { AuthContext } from "../context/AuthContext.jsx";
 import { auth, googleProvider } from "../utils/firebase";
 import { signInWithPopup } from "firebase/auth";
+import { isValidEmail } from "../utils/validationUtils.js";
 
 // Google Icon
 const GoogleIcon = () => (
@@ -120,8 +121,8 @@ const Signup = () => {
       } else {
         setErrorMessage(
           err.response?.data?.message ||
-            err.message ||
-            "Failed to authenticate with Google."
+          err.message ||
+          "Failed to authenticate with Google."
         );
       }
     } finally {
@@ -134,6 +135,11 @@ const Signup = () => {
     if (name.trim().length < 2) {
       newErrors.name = "Name must be at least 2 characters long";
     }
+    // email validation
+    if (!isValidEmail(email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
     if (!passwordRegex.test(password)) {
       newErrors.password = "Password: min 8 chars, 1 uppercase, 1 digit, 1 special character";
@@ -163,8 +169,8 @@ const Signup = () => {
       } else {
         setErrorMessage(
           error.response?.data?.message ||
-            error.message ||
-            "Signup failed. Please try again."
+          error.message ||
+          "Signup failed. Please try again."
         );
       }
     } finally {
@@ -191,7 +197,7 @@ const Signup = () => {
       <div className="absolute top-[-120px] left-[-80px] w-[340px] h-[570px] rounded-full bg-indigo-500/20 blur-3xl"></div>
 
       <div className="absolute bottom-[-140px] right-[-80px] w-[550px] h-[350px] rounded-full bg-sky-500/20 blur-3xl"></div>
-      
+
       <div className="absolute top-[-140px] right-[-80px] w-[550px] h-[350px] rounded-full bg-violet-500/20 blur-3xl"></div>
 
       {/* Card */}
@@ -351,6 +357,9 @@ const Signup = () => {
                 text-sm
               "
             />
+            {errors.email && (
+              <span className="text-red-500 text-xs">{errors.email}</span>
+            )}
           </div>
 
           {/* Password */}
